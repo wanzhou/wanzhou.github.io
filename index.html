@@ -33,11 +33,11 @@ limit_tags: 8
                         
                         <div class='ix-article-tags'></div>
                         <h3 class='ix-article-title'>
-                            <a href='{{ post.url }}' title='{{ post.title }}'>{{ post.title }}</a>
+                            <a href='{{ post.url }}' target='_blank' title='{{ post.title }}'>{{ post.title }}</a>
                         </h3>
                         <div class='row ix-article-content'>
                             <div class='col-lg-4 col-md-5'>
-                                <a class='thumbnail' href='{{ post.url }}' title='{{ post.title }}'>
+                                <a class='thumbnail' href='{{ post.url }}' target='_blank' title='{{ post.title }}'>
                                     {% if post.image == null %}
                                     <img class="media-object" src="/images/blogways.png" alt="..." width='278px' height='166px'>
                                     {% else %}
@@ -78,7 +78,7 @@ limit_tags: 8
                     <div class='panel-body visible-sm visible-xs'>
                         <div class='ix-article-title'>
                             <h4>
-                                <a href='{{ post.url }}' title='{{ post.title }}'>{{ post.title }}
+                                <a href='{{ post.url }}' target='_blank' title='{{ post.title }}'>{{ post.title }}
                                 </a>
                             </h4>
                         </div>
@@ -96,7 +96,7 @@ limit_tags: 8
                             </span>
                         </p>
                         <div class='ix-article-content'>
-                            <a href='{{ post.url }}' title='{{ post.title }}' class='thumbnail'>
+                            <a href='{{ post.url }}' title='{{ post.title }}' target='_blank' class='thumbnail'>
                                 {% if post.image == null %}
                                 <img width='750' height='450' src='/images/blogways.png' style='display: block;'>
                                 {% else %}
