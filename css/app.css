@@ -12,12 +12,13 @@ span.article-mark{ position: relative; top: -10px; font-size: 40px; color: #ddd;
  * authors_list
  * */
 .al-article-list { font-family: Georgia, serif; }
-h2.al-year { margin-top: 0px; text-align: center; font-weight: 900; font-family: Georgia, serif; }
+h2.al-year { margin-top: 0px; text-align: center; font-family: Georgia, serif; }
 hr.al-hr { margin-top: 0px; border-top-color: #ccc; }
 .al-article { padding-left: 23px; background: url(/images/ico_Original.gif) 0% 50% no-repeat; -webkit-margin-before: 1em; font-size: 20px; }
 .al-article > a { color: black; }
 .al-article > a:hover{ color: #31b0d5; }
 span.al-article-date { color: #959595; }
+h2.al-author-name.panel-title { font-size: 25px; font-weight: bold; text-align: center; }
 /**
  * about.html ab-
  * */
@@ -29,6 +30,7 @@ span.al-article-date { color: #959595; }
 .ab-author-name > a { color: black; }
 .ab-author-name > a:hover { color: #31b0d5; }
 .ab-author-info > div { margin-left: -76px; }
+h2.al-author-name { margin-bottom: 0px; margin-top: 0px; }
 
 /**
  * index.html ix-
@@ -40,3 +42,8 @@ span.al-article-date { color: #959595; }
 .ix-hr { margin-top: 0; }
 .ix-article-author { float: left; }
 .ix-article-date { float: right; }
+
+/**
+ * categories  
+ * */
+h2.category-name.panel-title { font-size: 25px; text-align: center; font-weight: bold; }
