@@ -1,0 +1,34 @@
+    <div class='container'>
+        <div class='main-content row'>
+            <div class='mainbar col-md-9 col-sm-12 col-xs-12'>
+                <div class='panel panel-default'>
+                    <div class='al-author-title panel-body'>
+                        <h2 class='al-author-name'>{{ page.name }}</h2>
+                    </div>
+                </div>
+
+                <div class='al-article-list'>
+                    {% for year in site.data.years %}
+                    {% assign flag = true %}
+                    {% for post in site.posts %}
+                    {% if post.author == page.name %}
+                    {% capture y%}{{ post.date | date: "%Y" }}{% endcapture %}
+                    {% if year.y == y %}
+                    {% if flag == true %}
+                    <div class='panel panel-default'>
+                        <div class='panel-body'>
+                            <h2 class='al-year'>{{ year.y }}</h2>
+                            <hr class='al-hr'>{% assign flag = false %}{% endif %}
+                            <div class='al-article'>
+                                <a href='{{ post.url }}' title='{{ post.title }}'>{{ post.title | truncate: 30 }}</a>
+                                <span class='al-article-date'>&nbsp;(发布于：{{ post.date | date: '%Y.%m.%d' }})</span>
+                            </div>{% endif %}{% endif %}{% endfor %}
+                            {% if flag == false %}
+                        </div>
+                    </div><!--end of panel-->{% endif %}{% endfor %}
+                </div><!--end of article-list-->
+            </div><!--end of mainbar-->
+            <div class='sidebar col-md-3 hidden-sm hidden-xs'>
+            </div>
+        </div><!--end of main-content-->
+    </div><!--end of container-->

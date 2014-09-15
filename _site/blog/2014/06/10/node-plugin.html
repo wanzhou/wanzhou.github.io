@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+    <title>node 插件化开发_博汇网_www.blogways.net</title>
+    <meta name=keywords content="node, express, plugin">
+    
+    <meta name=description content="插件化模块开发，降低代码耦合性，无需改动基础核心文件，多人协作降低了风险，无需改动代码支持多模块的安装卸载。">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src='/js/jquery-2.1.1.js'></script>
+    <link rel='stylesheet' type='text/css' href='/bootstrap/css/bootstrap.css'>
+    <link rel='stylesheet' type='text/css' href='/bootstrap/css/bootstrap-theme.css'>
+    <link rel='stylesheet' type='text/css' href='/css/app.css'>
+    <script src='/bootstrap/js/bootstrap.js'></script>
+    <script src='/js/app.js'></script>
+
+</head>
+<body style='background-color: #f5f5f5;'>
+    <div class='totop'>
+        <a id='to-top' href='javascript:void(0)'>
+            <span id='to-top-title'>返回</br>顶部</span>
+        </a>
+    </div>
+    <div class='headerbar'>
+            <div class='navbar navbar-default navbar-fixed-top' role='navigation'>
+        <div class='containr-fluid'>
+            <div class='navbar-header'>
+                <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bw-navbar-collapse'>
+                    <span class='sr-only'>下拉框</span>
+                    <span class='icon-bar'></span>
+                    <span class='icon-bar'></span>
+                    <span class='icon-bar'></span>
+                </button>
+                <a class='navbar-brand' href='/'>Blog<span>ways</span></a>
+            </div>
+            <div class='navbar-collapse collapse' id='bw-navbar-collapse'>
+                <ul class='nav navbar-nav'>
+                    <li><a href='/'>主页</a></li>
+                    <li class='divider visible-xs'></li>
+                    <li class='active'><a href='javascript:void(0)'>博文</a></li>
+                    <li class='dropdown'>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">关于我们
+                            <span class="caret"></span>
+                        </a>
+                        <ul class='dropdown-menu' role='menu'>
+                            <li><a href='/about.html'>所有信息</a></li>
+                            <li class='divider'></li>
+                            <li><a href='/authors/jacky/'>Jacky</a></li>
+                            <li><a href='/authors/tangshizhong/'>汤仕忠</a></li>
+                            <li><a href='/authors/tangzhi/'>唐治</a></li>
+                            <li><a href='/authors/wanzhou/'>万洲</a></li>
+                        </ul>
+                    </li>
+                    <li class='disabled'><a href='javascript:void(0)'>联系我们</a></li>
+                </ul>
+                <!--<form class="navbar-form navbar-right hidden-sm hidden-xs" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </form>-->
+                <p class="navbar-text navbar-right hidden-sm hidden-xs"><small>汇集优秀博文(关注:敏捷开发/WEB开发/移动终端开发/NOSQL/云计算...)尽在</small><a href="/" class="navbar-link">Blogways</a>!</p>
+            </div>
+        </div>    
+    </div>
+
+    </div>
+        <script>
+        $(document).ready(function(){
+            (function(){
+                $.getJSON("/authors.json",function(mJSON){
+                    $.each( mJSON , function( i , item ){
+                        var name = item.name.toLowerCase().replace(" ","") || "";
+                        var page_name = "汤仕忠".toLowerCase().replace(" ","");
+                        var num = item.articles.length || 0;
+                        if(name == page_name){
+                            $("#article_num").append( num + "篇博文" );
+                        }
+                    });
+                });
+            })();
+        });
+    </script>
+
+    <div class='container'>
+        <div class='row main-content'>
+            <div class='col-md-9 col-sm-12 col-xs-12 mainbar'>
+                <div class='article'>
+                    <div class='panel panel-default article-extra'>
+                        <div class='panel-body'>
+                            <div class='article-pn'>
+                                
+                                <span class='pull-left'>上一篇:
+                                    <a href='/blog/2014/06/09/node-log4js.html' title='node 日志管理log4js'>node 日志管理log4js</a>
+                                </span>
+                                
+                                
+                                <span class='pull-right'>下一篇:
+                                    <a href='/blog/2014/06/11/node-express4.x-api-2.html' title='Express4.x API 翻译[2] -- Request'>Express4.x API 翻译[2] -- Request</a>
+                                </span>
+                                
+                            </div><!--end of article-pn-->                            
+                            <hr class='hidden-sm hidden-xs'>
+                            <div class='article-info'>
+                                <div class='article-title'>
+                                    <h2>node 插件化开发
+                                        <small class='article-date'>
+                                            <span class='glyphicon glyphicon-calendar'></span>&nbsp;
+                                            <span class='sr-only'>发布于&nbsp;:&nbsp;</span>2014-06-10
+                                        </small>
+                                    </h2>
+                                </div>
+                                <div class='row article-tags'>
+                                    <div class='col-xs-12 post-tags'>
+                                        <span class='glyphicon glyphicon-tags'></span>&nbsp;
+                                        
+                                        <a class='label label-info' href='#'>node</a>
+                                        
+                                        、
+                                        
+                                        <a class='label label-info' href='#'>express</a>
+                                        
+                                        、
+                                        
+                                        <a class='label label-info' href='#'>plugin</a>
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='article-main'>
+                        <div class='panel panel-default'>
+                            <div class='panel-body'>
+                                <div class='article-content'>
+                                    <h2>一、非插件化开发在node-express下的实现</h2>
+
+<p>以下为我们日志分析系统中添加一个查询明细页面要添加的代码：</p>
+
+<p>1、建立明细页面调转逻辑控制文件detail.js，添加代码：</p>
+
+<pre><code>exports.qrydetail = function(req, res) {
+    res.render('query/detail',{
+        layout: false,
+        errors: req.flash('error') 
+    })
+}
+</code></pre>
+
+<p>2、建立登录页面detail.html；</p>
+
+<p>3、在路由控制文件routes.js引入detail.js：</p>
+
+<pre><code>var detailModule = require('../app/controllers/detail')
+</code></pre>
+
+<p>4、在路由控制文件routes.js中添加路由：app.get('/detail.html',       detailModule.qrydetail)；</p>
+
+<p>访问：http://localhost:3000/detail.html</p>
+
+<p>缺点：</p>
+
+<p>1) 每次添加链接都需要修改routes.js，时间久了文件很大不便于维护；</p>
+
+<p>2) 多人协作routes.js会同时被多人修改；</p>
+
+<p>3) 无法支持不改动代码多模块的安装卸载</p>
+
+<h2>二、插件化模块添加</h2>
+
+<p>1、plugin安装</p>
+
+<pre><code>$ npm install plugin
+</code></pre>
+
+<p>2、与express集成</p>
+
+<pre><code>var plugin = require('plugin')；
+//Plug-in technology    
+plugin(app).require(config.root+'/app/controllers/plugin').load();
+</code></pre>
+
+<p>以上代码含义为：node服务启动时会加载'/app/controllers/plugin'目录下所有js文件作为项目插件（当然文件内容有一定格式）</p>
+
+<p>3、添加一个查询明细页面</p>
+
+<p>1) 建立明细查询模块页面detail.js，代码：</p>
+
+<pre><code>exports.plugin = function(server) {
+
+   server.get('/detail.html', function(req, res) { 
+        res.render('query/detail',{
+            layout: false,
+            errors: req.flash('error') 
+        })                    
+   });
+}
+</code></pre>
+
+<p>2) 建立登录页面detail.html；</p>
+
+<p>访问：http://localhost:3000/detail.html</p>
+
+<p>优点：</p>
+
+<p>a) 无需修改routes.js；</p>
+
+<p>b) 支持不改动代码多模块的安装卸载(卸载将'/app/controllers/plugin'目录下detail.js文件删除即可)</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-3 hidden-sm hidden-xs sidebar'>
+
+                <div class='authorbar panel panel-default'>
+                    <div class='panel-heading'>
+                        <h4 class='panel-title'>作品信息</h4>
+                    </div>
+                    <div class='author-info row panel-body'>
+                        <a class='col-lg-3 col-md-4'>
+                            <img width='58' height='58' src='/images/pix3.jpg' alt='作者头像'>
+                        </a>
+                        <div class='col-md-6 media-body'>
+                            
+                            
+                            <h4 class='author-name media-heading'>
+                                <a id='author_url' href='/authors/tangshizhong/'>汤仕忠</a>
+                            
+                            
+                            </h4>
+                            <span id='article_num'></span>
+                        </div>
+                    </div>
+                </div><!--end of authorbar-->
+                
+                <div class='newbar panel panel-default'>
+                    <div class='panel-heading'>
+                        <h4 class='panel-title'>最新博文</h4>
+                    </div>
+                    <div class='list-group new-list'>
+                        
+                        <div class='list-group-item list-group-item-default'>
+                            <h5 class='new-heading'>
+                                <a href='/blog/2014/08/27/jQuery-source-analysis-ajax(2).html' title='jQuery源码解读[14] -- AJAX（2）'>jQuery源码解读[14] -- AJAX（2）</a>
+                            </h5>
+                            <span class='desc'>异步JavaScript和XML(Asynchronous JavaScr...</span>
+                            <div class='new-post-info'>
+                                <span class='new-date'>
+                                    <span class='glyphicon glyphicon-calendar'></span>
+                                    <span class='sr-only'>&nbsp;:&nbsp;</span>
+                                    2014-08-27
+                                </span>&nbsp;&nbsp;
+                                <span class='new-author'>
+                                    <span class='glyphicon glyphicon-user'></span>
+                                    <span class='sr-only'>&nbsp;:&nbsp;</span>
+                                    
+                                    <a href='/authors/wanzhou/'>万洲</a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class='list-group-item list-group-item-default'>
+                            <h5 class='new-heading'>
+                                <a href='/blog/2014/08/26/jQuery-source-analysis-ajax(1).html' title='jQuery源码解读[13] -- AJAX（1）'>jQuery源码解读[13] -- AJAX（1）</a>
+                            </h5>
+                            <span class='desc'>异步JavaScript和XML(Asynchronous JavaScr...</span>
+                            <div class='new-post-info'>
+                                <span class='new-date'>
+                                    <span class='glyphicon glyphicon-calendar'></span>
+                                    <span class='sr-only'>&nbsp;:&nbsp;</span>
+                                    2014-08-26
+                                </span>&nbsp;&nbsp;
+                                <span class='new-author'>
+                                    <span class='glyphicon glyphicon-user'></span>
+                                    <span class='sr-only'>&nbsp;:&nbsp;</span>
+                                    
+                                    <a href='/authors/wanzhou/'>万洲</a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class='list-group-item list-group-item-default'>
+                            <h5 class='new-heading'>
+                                <a href='/blog/2014/08/25/jQuery-source-analysis-attribute.html' title='jQuery源码解读[12] -- 特性属性操作'>jQuery源码解读[12] -- 特性属性操作</a>
+                            </h5>
+                            <span class='desc'>属性操作主要包括Attr特性和Prop属性两部分，attr特性就是存在于元...</span>
+                            <div class='new-post-info'>
+                                <span class='new-date'>
+                                    <span class='glyphicon glyphicon-calendar'></span>
+                                    <span class='sr-only'>&nbsp;:&nbsp;</span>
+                                    2014-08-25
+                                </span>&nbsp;&nbsp;
+                                <span class='new-author'>
+                                    <span class='glyphicon glyphicon-user'></span>
+                                    <span class='sr-only'>&nbsp;:&nbsp;</span>
+                                    
+                                    <a href='/authors/wanzhou/'>万洲</a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class='list-group-item list-group-item-default'>
+                            <h5 class='new-heading'>
+                                <a href='/blog/2014/08/22/jQuery-source-analysis-selector-expr.html' title='jQuery源码解读[11] -- 选择符表达式'>jQuery源码解读[11] -- 选择符表达式</a>
+                            </h5>
+                            <span class='desc'>jQuery的工厂函数$()用于在页面中查找要操作的元素，接收一个按照类似...</span>
+                            <div class='new-post-info'>
+                                <span class='new-date'>
+                                    <span class='glyphicon glyphicon-calendar'></span>
+                                    <span class='sr-only'>&nbsp;:&nbsp;</span>
+                                    2014-08-22
+                                </span>&nbsp;&nbsp;
+                                <span class='new-author'>
+                                    <span class='glyphicon glyphicon-user'></span>
+                                    <span class='sr-only'>&nbsp;:&nbsp;</span>
+                                    
+                                    <a href='/authors/wanzhou/'>万洲</a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class='list-group-item list-group-item-default'>
+                            <h5 class='new-heading'>
+                                <a href='/blog/2014/08/22/jQuery-source-analysis-css.html' title='jQuery源码解读[10] -- CSS样式应用'>jQuery源码解读[10] -- CSS样式应用</a>
+                            </h5>
+                            <span class='desc'>在JavaScript的世界里，效果会令操作体验及交互体验更胜一筹，通过j...</span>
+                            <div class='new-post-info'>
+                                <span class='new-date'>
+                                    <span class='glyphicon glyphicon-calendar'></span>
+                                    <span class='sr-only'>&nbsp;:&nbsp;</span>
+                                    2014-08-22
+                                </span>&nbsp;&nbsp;
+                                <span class='new-author'>
+                                    <span class='glyphicon glyphicon-user'></span>
+                                    <span class='sr-only'>&nbsp;:&nbsp;</span>
+                                    
+                                    <a href='/authors/wanzhou/'>万洲</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end of newestbar-->
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>	
