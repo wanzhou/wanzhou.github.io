@@ -7,7 +7,7 @@
                     </div>
                 </div>
 
-                <div class='al-article-list'>
+                <div class='al-article-list visible-lg visible-md visible-sm hidden-xs'>
                     {% for year in site.data.years %}
                     {% assign flag = true %}
                     {% for post in site.posts %}
@@ -27,6 +27,27 @@
                         </div>
                     </div><!--end of panel-->{% endif %}{% endfor %}
                 </div><!--end of article-list-->
+
+                <div class='al-article-list-xs hidden-lg hidden-md hidden-sm visible-xs'>
+                    {% for year1 in site.data.years %}
+                    {% assign flag1 = true %}
+                    {% for post1 in site.posts %}
+                    {% if post1.author == page.name %}
+                    {% capture y1 %}{{ post1.date | date: '%Y' }}{% endcapture %}
+                    {% if year1.y == y1 %}
+                    {% if flag1 == true %}
+                    <div class='panel panel-default'>
+                        <div class='panel-heading'>
+                            <h4 class='panel-title'>{{ year1.y }}</h4>
+                        </div>
+                        <div class='list-group'>{% assign flag1 = false %}{% endif %}
+                            <a class='list-group-item list-group-item-default' href='{{ post1.url }}' target='_blank'>{{ post1.title | truncate: 30 }}
+                                <span class='al-article-date-xs'>({{ post1.date | date: '%Y.%m.%d' }})</span>
+                            </a>{% endif %}{% endif %}{% endfor %}
+                            {% if flag1 == false %}
+                        </div><!--end of list-group-->
+                    </div><!--end of panel-->{% endif %}{% endfor %}
+                </div><!--end of list-xs-->
             </div><!--end of mainbar-->
             <div class='sidebar col-md-3 hidden-sm hidden-xs'>
             </div>

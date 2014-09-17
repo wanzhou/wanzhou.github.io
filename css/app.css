@@ -19,6 +19,10 @@ hr.al-hr { margin-top: 0px; border-top-color: #ccc; }
 .al-article > a:hover{ color: #31b0d5; }
 span.al-article-date { color: #959595; }
 h2.al-author-name.panel-title { font-size: 25px; font-weight: bold; text-align: center; }
+/* visible-xs */
+.al-article-date-xs { float: right; font-size: 13px;}
+.al-article-list-xs > .panel > .list-group > a { font-size: 13px; }
+
 /**
  * about.html ab-
  * */
