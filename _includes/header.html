@@ -16,7 +16,9 @@
                     <li class='divider visible-xs'></li>
                     <li class='active'><a href='javascript:void(0)'>博文</a></li>{% else %}{% endif %}
                     <li class='divider visible-xs'></li>
-                    <li class='dropdown visible-sm visible-xs'>
+                    {% if page.category != null %}
+                    <li class='dropdown visible-sm visible-xs active'>{% else %}
+                    <li class='dropdown visible-sm visible-xs'>{% endif %}
                         <a class='dropdown-toggle' data-toggle='dropdown' href='#'>热门分类
                             <span class='caret'></span>
                         </a>
