@@ -11,7 +11,7 @@ layout: layout
                         var page_name = "{{ page.author }}".toLowerCase().replace(" ","");
                         var num = item.articles.length || 0;
                         if(name == page_name){
-                            $("#article_num").append( num + "篇博文" );
+                            $("#article-num").append( num + "篇博文" );
                         }
                     });
                 });
@@ -22,32 +22,39 @@ layout: layout
     <div class='container'>
         <div class='row main-content'>
             <div class='col-md-9 col-sm-12 col-xs-12 mainbar'>
-                <div class='article'>
-                    <div class='panel panel-default article-extra'>
+                <div class='pt-article'>
+                    <div class='panel panel-default pt-article-extra'>
                         <div class='panel-body'>
-                            <div class='article-pn'>
+                            <div class='pt-article-pn row'>
                                 {% assign p = page.previous %}{% if p %}
-                                <span class='pull-left'>上一篇:
-                                    <a href='{{ p.url }}' title='{{ p.title }}'>{{ p.title }}</a>
-                                </span>
+                                <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                    <span>上一篇:
+                                        <a href='{{ p.url }}' title='{{ p.title }}'>{{ p.title }}</a>
+                                    </span>
+                                </div>
                                 {% endif %}
                                 {% assign n = page.next %}{% if n %}
-                                <span class='pull-right'>下一篇:
-                                    <a href='{{ n.url }}' title='{{ n.title }}'>{{ n.title }}</a>
-                                </span>
+                                <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                    <span class='pull-right hidden-sm hiden-xs visible-lg visible-md'>下一篇:
+                                        <a href='{{ n.url }}' title='{{ n.title }}'>{{ n.title }}</a>
+                                    </span>
+                                    <span class='hidden-lg hiden-md visible-sm visible-xs'>下一篇:
+                                        <a href='{{ n.url }}' title='{{ n.title }}'>{{ n.title }}</a>
+                                    </span>
+                                </div>
                                 {% endif %}
                             </div><!--end of article-pn-->                            
                             <hr class='hidden-sm hidden-xs'>
-                            <div class='article-info'>
-                                <div class='article-title'>
+                            <div class='pt-article-info'>
+                                <div class='pt-article-title'>
                                     <h2>{{ page.title }}
-                                        <small class='article-date'>
+                                        <small class='pt-article-date hidden-xs'>
                                             <span class='glyphicon glyphicon-calendar'></span>&nbsp;
                                             <span class='sr-only'>发布于&nbsp;:&nbsp;</span>{{ page.date | date: "%Y-%m-%d"  }}
                                         </small>
                                     </h2>
                                 </div>
-                                <div class='row article-tags'>{% assign limnum = 8 %}
+                                <div class='row pt-article-tags'>{% assign limnum = 8 %}
                                     <div class='col-xs-12 post-tags'>{% if page.tags == null %}
                                         <span class='glyphicon glyphicon-tag'></span>{{ 暂无 }}{% else %}
                                         <span class='glyphicon glyphicon-tags'></span>&nbsp;{% for tag in page.tags %}
@@ -60,10 +67,10 @@ layout: layout
                             </div>
                         </div>
                     </div>
-                    <div class='article-main'>
+                    <div class='pt-article-main'>
                         <div class='panel panel-default'>
                             <div class='panel-body'>
-                                <div class='article-content'>
+                                <div class='pt-article-content'>
                                     {{ content }}
                                 </div>
                             </div>
@@ -86,7 +93,7 @@ layout: layout
                             <h4 class='author-name media-heading'>
                                 <a id='author_url' href='{{ auth.page_path }}'>{{ page.author }}</a>{% endif %}{% endfor %}
                             </h4>
-                            <span id='article_num'></span>
+                            <span id='article-num'></span>
                         </div>
                     </div>
                 </div><!--end of authorbar-->

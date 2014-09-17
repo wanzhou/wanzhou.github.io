@@ -47,3 +47,12 @@ h2.al-author-name { margin-bottom: 0px; margin-top: 0px; }
  * categories  
  * */
 h2.category-name.panel-title { font-size: 25px; text-align: center; font-weight: bold; }
+
+/**
+ * post.html pt-
+ * */
+.pt-article-title > h2 { font-size: 25px; margin-bottom: 20px; }
+.pt-article-date { float: right; color: #959595; }
+.pt-article-main h2 { font-size: 21px; margin-bottom: 25px; border-bottom: 1px solid #cccccc; padding-bottom: 12px; }
+.pt-article-main hr { display: none; }
+.pt-article-main br { display: none; }

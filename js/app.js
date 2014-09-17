@@ -1,4 +1,10 @@
 $(document).ready(function(){
+    (function($){
+        $('[data-toggle="tooltip"]').tooltip();
+        $('table').addClass('table table-bordered table-striped table-hover');
+        $('table').wrap('<div class="table-responsive"></div>');
+        $('table tr th').addClass('success');
+    })(jQuery);
     $(window).scroll(function(){
         var scrollh = $(window).scrollTop();
         if( scrollh > 200 ){
