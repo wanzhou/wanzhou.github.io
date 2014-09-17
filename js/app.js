@@ -4,6 +4,7 @@ $(document).ready(function(){
         $('table').addClass('table table-bordered table-striped table-hover');
         $('table').wrap('<div class="table-responsive"></div>');
         $('table tr th').addClass('success');
+        $('p > img').wrap('<a class="thumbnail"></a>');
     })(jQuery);
     $(window).scroll(function(){
         var scrollh = $(window).scrollTop();
