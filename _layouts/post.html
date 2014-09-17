@@ -11,7 +11,7 @@ layout: layout
                         var page_name = "{{ page.author }}".toLowerCase().replace(" ","");
                         var num = item.articles.length || 0;
                         if(name == page_name){
-                            $("#article-num").append( num + "篇博文" );
+                            $("#pt-article-num").append( num + " 篇博文" );
                         }
                     });
                 });
@@ -84,16 +84,16 @@ layout: layout
                     <div class='panel-heading'>
                         <h4 class='panel-title'>作品信息</h4>
                     </div>
-                    <div class='author-info row panel-body'>
+                    <div class='pt-author-info row panel-body'>
                         <a class='col-lg-3 col-md-4'>
                             <img width='58' height='58' src='/images/pix3.jpg' alt='作者头像'>
                         </a>
                         <div class='col-md-6 media-body'>{% for auth in site.authors %}
                             {% if page.author == auth.name %}
-                            <h4 class='author-name media-heading'>
-                                <a id='author_url' href='{{ auth.page_path }}'>{{ page.author }}</a>{% endif %}{% endfor %}
+                            <h4 class='pt-author-name media-heading'>
+                                <a id='pt-author-url' href='{{ auth.page_path }}'>{{ page.author }}</a>{% endif %}{% endfor %}
                             </h4>
-                            <span id='article-num'></span>
+                            <span id='pt-article-num'></span>
                         </div>
                     </div>
                 </div><!--end of authorbar-->

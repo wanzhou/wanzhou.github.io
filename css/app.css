@@ -56,3 +56,15 @@ h2.category-name.panel-title { font-size: 25px; text-align: center; font-weight:
 .pt-article-main h2 { font-size: 21px; margin-bottom: 25px; border-bottom: 1px solid #cccccc; padding-bottom: 12px; }
 .pt-article-main hr { display: none; }
 .pt-article-main br { display: none; }
+.new-heading + .desc { font-size: 12px; color: #959595; }
+.new-heading > a { color: black; }
+.new-heading > a:hover { color: #31b0d5; }
+.new-date { color: #959595; }
+.new-author { color: #959595; }
+.new-author > a { color: black; }
+.new-author > a:hover { color: #31b0d5; }
+#pt-article-num { font-family: Georgia, serif; /* font-weight: bold; */ }
+.pt-author-name { margin-top: 5px; margin-bottom: 9px; margin-left: 13px; }
+#pt-article-num { font-family: Georgia, serif; font-size: 13px; margin-left: 13px; }
+#pt-author-url { color: black; }
+#pt-author-url:hover { color: #31b0d5; }
