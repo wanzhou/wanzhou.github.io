@@ -41,8 +41,12 @@
                             <h2 class='panel-title al-year'>{{ year1.y }}</h2>
                         </div>
                         <div class='list-group'>{% assign flag1 = false %}{% endif %}
-                            <a class='list-group-item list-group-item-default' href='{{ post1.url }}' target='_blank'>{{ post1.title | truncate: 25 }}
-                                <span class='al-article-date-xs pull-right'>({{ post1.date | date: '%m.%d' }})</span>
+                            <a class='list-group-item list-group-item-default' href='{{ post1.url }}' target='_blank'>
+                                <h4 class='list-group-item-heading al-title-xs'>{{ post1.title | truncate: 30 }}</h4>
+                                <div class='list-group-item-text'>
+                                    <span class='al-article-date-xs pull-right'>({{ post1.date | date: '%m.%d' }})</span>
+                                    <span class='badge'>{{ post1.category }}</span>
+                                </div>
                             </a>{% endif %}{% endif %}{% endfor %}
                             {% if flag1 == false %}
                         </div><!--end of list-group-->

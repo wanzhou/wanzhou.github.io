@@ -22,6 +22,8 @@ h2.al-author-name.panel-title { font-size: 25px; font-weight: bold; text-align: 
 /* visible-xs */
 .al-article-date-xs { float: right; font-size: 13px; font-family: Georgia, serif; color: #959595;}
 .al-article-list-xs > .panel > .list-group > a { font-size: 13px; color: black;}
+.al-title-xs { font-size: 14px; }
+.al-title-xs + div > .badge { background-color: #5bc0de; }
 
 /**
  * about.html ab-
