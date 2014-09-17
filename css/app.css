@@ -53,6 +53,7 @@ h2.al-author-name { margin-bottom: 0px; margin-top: 0px; }
  * categories  
  * */
 h2.category-name.panel-title { font-size: 25px; text-align: center; font-weight: bold; }
+.cate-drop-menu { min-width: 190px; }
 
 /**
  * post.html pt-
