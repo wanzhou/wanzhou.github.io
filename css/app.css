@@ -3,10 +3,11 @@ span.article-mark{ position: relative; top: -10px; font-size: 40px; color: #ddd;
 .container{ margin-top: 71px; }
 
 /* to-top*/
-.totop > a{ background: url(http://img.baidu.com/img/iknow/exp/exp-share-sprite.png) no-repeat;}
+.totop > a, .totop-xs > a{ background: url(http://img.baidu.com/img/iknow/exp/exp-share-sprite.png) no-repeat;}
 #to-top{ position: fixed; bottom: 50px; right: 50px; z-index: 99999; background-position: 0 -110px;  width: 50px; height: 50px;    display: none;}
-#to-top:hover{ text-decoration: none; background: #31b0d5;}
-#to-top-title{ font-family: 'Microsoft Yahei',"微软雅黑",arial,"宋体",sans-serif; font-size: 14px; color: #fff; width: 50px; height: 50px; display: none; line-height: 18px; padding-top: 6px; padding-left: 9px; }
+#to-top-xs{ position: fixed; bottom: 20px; right: 20px; z-index: 99999; background-position: 0 -110px;  width: 50px; height: 50px;    display: none;}
+#to-top:hover, #to-top-xs:hover { text-decoration: none; background: #31b0d5;}
+#to-top-title, #to-top-title-xs{ font-family: 'Microsoft Yahei',"微软雅黑",arial,"宋体",sans-serif; font-size: 14px; color: #fff; width: 50px; height: 50px; display: none; line-height: 18px; padding-top: 6px; padding-left: 9px; }
 
 /**
  * authors_list

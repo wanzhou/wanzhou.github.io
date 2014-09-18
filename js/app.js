@@ -9,17 +9,17 @@ $(document).ready(function(){
     $(window).scroll(function(){
         var scrollh = $(window).scrollTop();
         if( scrollh > 200 ){
-            $('#to-top').fadeIn('fast');
+            $('#to-top, #to-top-xs').fadeIn('fast');
         }else{
-            $('#to-top').stop().fadeOut('fast');
+            $('#to-top, #to-top-xs').stop().fadeOut('fast');
         }
     });
-    $('#to-top').on( 'click', function( event ){
+    $('#to-top, #to-top-xs').on( 'click', function( event ){
         $('html,body').animate({scrollTop: '0px'}, 500);
     });
-    $('#to-top').hover(function(){
-        $('#to-top-title').show().css('display','block');
+    $('#to-top,#to-top-xs').hover(function(){
+        $('#to-top-title, #to-top-title-xs').show().css('display','block');
     }, function(){
-        $('#to-top-title').hide();
+        $('#to-top-title, #to-top-title-xs').hide();
     });
 });
