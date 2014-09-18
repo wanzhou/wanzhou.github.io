@@ -62,6 +62,10 @@ h2.category-name.panel-title { font-size: 25px; text-align: center; font-weight:
 .pt-article-title > h2 { font-size: 25px; margin-bottom: 20px; }
 .pt-article-date { float: right; color: #959595; }
 .pt-article-main h2 { font-size: 21px; margin-bottom: 25px; border-bottom: 1px solid #cccccc; padding-bottom: 12px; }
+.pt-article-main h3 { font-size: 19px; }
+.pt-article-main h4 { font-size: 17px; }
+.pt-article-main h5 { font-size: 15px; }
+.pt-article-main h6 { font-size: 13px; }
 .pt-article-main hr { display: none; }
 .pt-article-main br { display: none; }
 .new-heading + .desc { font-size: 12px; color: #959595; }
