@@ -1,3 +1,18 @@
+
+    <script>
+        $(document).ready(function(){
+            (function(){
+                $.getJSON("/authors.json",function(mJSON){
+                    $.each( mJSON , function( i , item ){
+                        var name = item.name.replace(" ","") || "";                        
+                        var num = item.articles.length || 0;
+                        $("#"+name+'-side-num').html( num );
+                    });
+                });
+            })();
+        });
+    </script>
+
     <div class='container'>
         <div class='main-content row'>
             <div class='mainbar col-md-9 col-sm-12 col-xs-12'>
@@ -54,6 +69,19 @@
                 </div><!--end of list-xs-->
             </div><!--end of mainbar-->
             <div class='sidebar col-md-3 hidden-sm hidden-xs'>
-            </div>
+                <div class='authorslistbar panel panel-default' id='authorslistbar'>
+                    <div class='panel-heading'>
+                        <h4 class='panel-title'>作者列表</h4>
+                    </div>
+                    <div class='list-group'>{% for author in site.authors %}{% if page.name != author.name %}
+                        <a class='list-group-item' href='{{ author.page_path }}'>{{ author.name | remove: ' ' }}
+                            <span class='badge pull-right' id='{{ author.name | remove: ' ' }}-side-num'></span>
+                        </a>{% else %}
+                        <a class='list-group-item disabled'>{{ author.name | remove: ' ' }}
+                            <span class='badge pull-right' id='{{ author.name | remove: ' ' }}-side-num'></span>
+                        </a>{% endif %}{% endfor %}
+                    </div>
+                </div><!--end of authorslistbar-->
+            </div><!--end of sidebar-->
         </div><!--end of main-content-->
     </div><!--end of container-->

@@ -63,10 +63,10 @@ page_tags: 标签
                     </div>
                     <div class='list-group'>{% for cate in site.categories %}
                         {% assign cate_name = cate | first %}{% if cate_name != page.category %}
-                        <a class='list-group-item list-group-item-default' href='/categories/{{ cate | first }}'>{{ cate | first }}
+                        <a class='list-group-item' href='/categories/{{ cate | first }}'>{{ cate | first }}
                             <span class='badge pull-right'>{{ cate | last | size }}</span>
                         </a>{% else %}
-                        <a class='list-group-item list-group-item-default disabled'>{{ cate | first }}
+                        <a class='list-group-item disabled'>{{ cate | first }}
                             <span class='badge pull-right'>{{ cate | last | size }}</span>
                         </a>{% endif %}{% endfor %}
                     </div>
